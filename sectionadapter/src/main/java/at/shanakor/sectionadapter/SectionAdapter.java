@@ -134,7 +134,7 @@ public abstract class SectionAdapter<K, V> extends BaseAdapter {
         final int type = getItemViewType(position);
 
         if(convertView == null)
-            convertView = inflateViewFor(type);
+            convertView = inflateViewFor(type, parent);
 
         if(type == ITEM_VIEW_TYPE.SECTION.ordinal())
             bindGroupView((K) object, convertView, position == 0);
@@ -150,9 +150,10 @@ public abstract class SectionAdapter<K, V> extends BaseAdapter {
 
     /**
      * @param viewTypeOrdinal The ordinal of the view's {@link ITEM_VIEW_TYPE}
+     * @param parent
      * @return A correctly inflated view depending on the given viewTypeOrdinal.
      */
-    protected abstract View inflateViewFor(int viewTypeOrdinal);
+    protected abstract View inflateViewFor(int viewTypeOrdinal, ViewGroup parent);
 
     /**
      * Binds the given key's data to the given groupView.

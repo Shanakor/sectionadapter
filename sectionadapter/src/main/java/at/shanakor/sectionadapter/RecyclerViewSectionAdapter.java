@@ -154,5 +154,9 @@ public abstract class RecyclerViewSectionAdapter<K, V, VH extends RecyclerView.V
     public LinkedHashMap<K, List<V>> getGroupedData() {
         return groupedData;
     }
+
+    public Object getItem(int position){
+        return data[position];
+    }
     //endregion
 }
